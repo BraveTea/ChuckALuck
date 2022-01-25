@@ -1,0 +1,36 @@
+Programme
+-----------
+game1 : ChuckALuck
+-----------
++ main() : void
+
+
+
+
+ChuckALuck
+-----------
+- balance : int
+- luckyNumber : int
+- round : int
+-----------
++ toString()
+
+
+
+DiceCup
+------------
+- die1 : Die/int
+- die2 : Die/int
+- die3 : Die/int
+------------
++ toString()
+
+
+
+
+Die
+------------
+- numberRolled : int
+------------
++ roll() : int
++ toString()
