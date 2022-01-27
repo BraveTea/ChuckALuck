@@ -31,7 +31,6 @@ DiceCup
 
 Die
 ------------
-- numberRolled : int
+
 ------------
-+ roll() : int
-+ toString()
+? roll() : int <<static>>
