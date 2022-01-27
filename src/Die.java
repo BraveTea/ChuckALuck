@@ -3,12 +3,16 @@ import java.util.Random;
 public class Die {
 
     private int numberRolled;
-    private Random rng = new Random();
+    private final Random rng = new Random();
 
     Die(){}
 
     protected void roll(){
         numberRolled = rng.nextInt(1,7);
+    }
+
+    public int getNumberRolled() {
+        return numberRolled;
     }
 
     @Override
