@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class DiceCup {
 
-    protected Die[] throwResults = new Die[3];
+    protected Die[] throwResults = new Die[3]; //TODO make private? replace code in ChuckALuck by parsing toString.
 
     DiceCup(){}
 

@@ -10,16 +10,26 @@ public class ChuckALuck {
 
     public void playRound(int luckyNumber, int betAmount){
         this.luckyNumber = luckyNumber;
-        increaseRound();
-        diceCup.throwDice();
-        runBetting(luckyNumber, betAmount);
+
+        if (luckyNumber <= 6 && luckyNumber >= 1) {
+            increaseRound();
+            diceCup.throwDice();
+            runBetting(luckyNumber, betAmount);
+        }
+        else {
+            System.out.printf("Your luckyNumber must be 1, 2, 3, 4, 5, or 6 %nPlease try again%n%n");
+        }
     }
 
 
     private void runBetting(int luckyNumber, int betAmount){
-        decreaseBalance(betAmount);
-        int numOfDice = diceInThrowResults(luckyNumber, diceCup.throwResults);
-        payOut(betAmount, betMultiplier(numOfDice));
+
+        if (enoughBalance(balance, betAmount)) {
+            decreaseBalance(betAmount);
+            int numOfDice = diceInThrowResults(luckyNumber, diceCup.throwResults);
+            payOut(betAmount, betMultiplier(numOfDice));
+        }
+        else System.exit(0);
     }
 
 
@@ -39,12 +49,15 @@ public class ChuckALuck {
     private int diceInThrowResults(int luckyNumber, Die[] throwResults){
         int diceInResults = 0;
         for (Die die : throwResults){
-            if (luckyNumber == die.getNumberRolled()){ //TODO perhaps use the toString here, so I can avoid a getter.
-                                                       // Just a question of figuring out how to compare those two.
+            if (luckyNumber == Integer.parseInt(die.toString())){ 
                 diceInResults += 1;
             }
         }
         return diceInResults;
+    }
+
+    private boolean enoughBalance(int balance, int betAmount){
+        return balance >= betAmount;
     }
 
     private void increaseBalance(int amount){

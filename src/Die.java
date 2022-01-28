@@ -11,10 +11,6 @@ public class Die {
         numberRolled = rng.nextInt(1,7);
     }
 
-    public int getNumberRolled() {
-        return numberRolled;
-    }
-
     @Override
     public String toString() {
         return ""+numberRolled;
